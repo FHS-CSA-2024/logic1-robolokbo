@@ -295,6 +295,17 @@ public class Logic1
     alarmClock(0, false) --> "10:00" */
     public String alarmClock(int day, boolean vacation) {
         String output = "";
+        //0-Sun, 1-Mon, 2-Tue, 3-Wed, 4-Thu, 5-Fri, 6-Sat
+        
+        if(day == 0 || day == 6){
+            output = "7:00";
+            vacation = true;
+        }
+        else{
+            output = "10:00";
+            vacation = false;
+        }
+        
         return output;
     }
 
@@ -311,6 +322,17 @@ public class Logic1
     teaParty(20, 6) --> 2 */
     public int teaParty(int tea, int candy) {
         int output = 0;
+        
+        if(tea < 5 || candy < 5){
+            output = 0;
+        }
+        else if(tea >= candy * 2 || candy >= tea * 2){
+            output = 2;
+        }
+        else if(tea >= 5 && candy >= 5){
+            output = 1;
+        }
+        
         return output;
     }
 
@@ -327,6 +349,20 @@ public class Logic1
     redTicket(0, 0, 0) --> 5 */
     public int redTicket(int a, int b, int c) {
         int output = 0;
+        
+        if(a == 2 && b == 2 && c == 2){
+            output = 10;
+        }
+        else if(a == b && b == c){
+            output = 5;
+        }
+        else if(a != b && a != c){
+            output = 1;
+        }
+        else{
+            output = 0;
+        }
+        
         return output;
     }
 
@@ -342,6 +378,17 @@ public class Logic1
     greenTicket(1, 1, 2) --> 10 */
     public int greenTicket(int a, int b, int c) {
         int output = 0;
+        
+        if(a != b && b != c){
+            output = 0;
+        }
+        else if(a == b && b == c){
+            output = 20;
+        }
+        else if(a == b || b == c || a == c){
+            output = 10;
+        }
+        
         return output;
     }
 
@@ -358,7 +405,15 @@ public class Logic1
     squirrelPlay(95, false) --> false
     squirrelPlay(95, true) --> true    */
     public boolean squirrelPlay(int temp, boolean isSummer) {
-        return false;
+        if(isSummer == true && temp >= 60 && temp <= 100){
+            return true;
+        }
+        else if(isSummer == false && temp >= 60 && temp <= 90){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 
@@ -376,6 +431,23 @@ public class Logic1
     caughtSpeeding(65, true) --> 0    */
     public int caughtSpeeding(int speed, boolean isBirthday) {
         int output = 0;
+        
+        if(speed >= 61 && speed <= 85 && isBirthday == true){
+            output = 0;
+        }
+        else if(speed >= 86 && isBirthday == true){
+            output = 0;
+        }
+        else if(speed <= 60){
+            output = 0;
+        }
+        else if(speed >= 61 && speed <= 80){
+            output = 1;
+        }
+        else if(speed >= 81){
+            output = 2;
+        }
+        
         return output;
     }
 
@@ -394,6 +466,17 @@ public class Logic1
     dateFashion(5, 5) --> 1    */
     public int dateFashion(int you, int date) {
         int output = 0;
+        
+        if(you >= 8 || date >= 8){
+            output = 2;
+        }
+        else if(you <= 2 || date <= 2){
+            output = 0;
+        }
+        else{
+            output = 1;
+        }
+        
         return output;
     }
     
@@ -410,6 +493,20 @@ public class Logic1
     fizzString2(15) --> "FizzBuzz!"*/
     public String fizzString2(int n) {
         String output = "";
+        
+        if(n%3 == 0 && n%5 == 0){
+            output += "FizzBuzz";
+        }
+        else if(n%3 == 0){
+            output += "Fizz";
+        }
+        else if(n%5 == 0){
+            output +="Buzz";
+        }
+        else{
+            output += n + "!";
+        }
+        
         return output;
     }
 
@@ -423,7 +520,14 @@ public class Logic1
     sodaParty(50, false) --> true
     sodaParty(70, true) --> true */
     public boolean sodaParty(int sodas, boolean isWeekend) {
-        return false;
+        if(sodas >= 40 && sodas <= 60){
+            return true;
+        }
+        else if(isWeekend == true && sodas >= 40){
+            return true; 
+        }
+        else{
+            return false;
+        }
     }
-
 }
