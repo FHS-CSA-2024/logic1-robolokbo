@@ -187,12 +187,15 @@ public class Logic1
     in1To10(11, false) --> false
     in1To10(11, true) --> true */
     public boolean in1To10(int n, boolean outsideMode) {
-        if(n >= 1 && n <= 10 && outsideMode == true){
+        if(outsideMode == true && (n <= 1 || n >= 10)){
             return true;
         }
-        
-        
-        return false;
+        else if(n >= 1 && n <= 10){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 
@@ -229,16 +232,18 @@ public class Logic1
         if(a == 6){
             return true;
         }
-        else if (b == 6){
+        else if(b == 6){
             return true;
         }
-        else if (a - b == 6){
+        else if(a - b == 6){
             return true;
         }
-        else if (a + b == 6){
+        else if(a + b == 6){
             return true;
         }
-        else return false;
+        else{
+            return false;
+        }
     }
 
 
@@ -251,9 +256,18 @@ public class Logic1
     lastDigit(23, 19, 12) --> false
     lastDigit(23, 19, 3) --> true */
     public boolean lastDigit(int a, int b, int c) {
-        
-        return false;
-        
+        if(a%10 == b%10){
+            return true;
+        }
+        else if(b%10 == c%10){
+            return true;
+        }
+        else if(a%10 == c%10){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 
