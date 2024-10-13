@@ -84,13 +84,21 @@ public class Logic1
     old35(10) --> true
     old35(15) --> false */
     public boolean old35(int n) {
-        if(n%3 == 0 || n%5 == 0){
-            return true;
+        System.out.print(">");
+        
+        boolean output = false;
+        
+        if(n%3 == 0 && n%5 == 0){
+            output = false;
         }
-        else {
-            return false;
+        else if(n%3 == 0){
+            output = true;
+        }
+        else if(n%5 == 0){
+            output = true;
         }
         
+        return output;
     }
 
 
@@ -150,12 +158,16 @@ public class Logic1
     nearTen(17) --> false
     nearTen(19) --> true */
     public boolean nearTen(int num) {
-        if(num%10 == 8 || num%10 == 9 || num%10 == 11 || num%10 == 12){
-            return true;
+        boolean output = false;
+        
+        if(num%10 <= 2 || num%10 >= 8){
+            output = true;
         }
-        else {
-            return false;
+        else{
+            output = false;
         }
+        
+        return output;
     }
 
 
@@ -311,13 +323,19 @@ public class Logic1
         String output = "";
         //0-Sun, 1-Mon, 2-Tue, 3-Wed, 4-Thu, 5-Fri, 6-Sat
         
-        if(day == 0 || day == 6){
-            output = "7:00";
-            vacation = true;
+        if(vacation == true){
+            if(day >= 1 || day <= 5){
+                output = "10:00";
+            }
+            else{
+                output = "off";
+            }
         }
-        else{
+        else if(day >= 1 && day <= 5){
+            output = "7:00";
+        }
+        else if(day == 0 || day == 6){
             output = "10:00";
-            vacation = false;
         }
         
         return output;
@@ -509,16 +527,16 @@ public class Logic1
         String output = "";
         
         if(n%3 == 0 && n%5 == 0){
-            output += "FizzBuzz";
+            output = "FizzBuzz!";
         }
         else if(n%3 == 0){
-            output += "Fizz";
+            output = "Fizz!";
         }
         else if(n%5 == 0){
-            output +="Buzz";
+            output = "Buzz!";
         }
         else{
-            output += n + "!";
+            output = n + "!";
         }
         
         return output;
